@@ -2,7 +2,7 @@ import { UTApi } from "uploadthing/server";
 
 const utapi = new UTApi()
 
-export const POST = async (req) => {
+export const POST = async (req: any) => {
     const { imageKey } = await req.json()
     try {
         const res = await utapi.deleteFiles(imageKey)

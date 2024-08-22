@@ -1,7 +1,7 @@
 import { connectToDB } from "@/utils/database"
 import { teamModel } from "@/models/teamModel"
 
-export const GET = async (req, { params }) => {
+export const GET = async (req: any, { params }: any) => {
     try {
         await connectToDB()
         const matetId = params.id
@@ -13,7 +13,7 @@ export const GET = async (req, { params }) => {
     }
 }
 
-export const PATCH = async (req, { params }) => {
+export const PATCH = async (req: any, { params }: any) => {
     const { Teammate, Role, personImage, position } = await req.json()
     try {
         await connectToDB()

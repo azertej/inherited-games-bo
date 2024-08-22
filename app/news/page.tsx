@@ -8,26 +8,26 @@ const Page = () => {
   const [news, setNews] = useState([])
 
   useEffect(() => {
-      const getNews = async () => {
-        const response = await fetch('/api/news/get-news')
-        const data = await response.json()
-        setNews(data)
-      }
-      getNews()
+    const getNews = async () => {
+      const response = await fetch('/api/news/get-news')
+      const data = await response.json()
+      setNews(data)
+    }
+    getNews()
   }, [])
 
-  const handleEdit = (post) => {
+  const handleEdit = (post: any) => {
     router.push(`/news/update-news?id=${post._id}`)
   }
 
-  const handleDelete = async (post) => {
+  const handleDelete = async (post: any) => {
     const isconfirmed = confirm("Are you sure to delete this news")
     if (isconfirmed) {
       try {
         await fetch(`/api/news/delete-news/${post._id.toString()}`, {
           method: 'DELETE',
         })
-        const newsAfterDelete = news.filter((n) => n._id !== post._id)
+        const newsAfterDelete = news.filter((n: any) => n._id !== post._id)
         setNews(newsAfterDelete)
       } catch (error) {
         console.log(error)

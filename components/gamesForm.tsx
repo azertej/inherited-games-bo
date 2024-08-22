@@ -7,12 +7,12 @@ import Image from 'next/image'
 import { Loader2, XCircle } from 'lucide-react'
 import { useToast } from "@/components/ui/use-toast"
 
-const GamesForm = ({ type, game, setGame, submitting, handleSubmit }) => {
+const GamesForm = ({ type, game, setGame, submitting, handleSubmit }: any) => {
 
     const [deleteImage, setDeleteImage] = useState(false)
     const { toast } = useToast()
 
-    const handleDeleteImage = async (image) => {
+    const handleDeleteImage = async (image: any) => {
         setDeleteImage(true)
         const imageKey = image.substring(image.lastIndexOf('/') + 1)
         try {
@@ -160,13 +160,13 @@ const GamesForm = ({ type, game, setGame, submitting, handleSubmit }) => {
                             {game.images && game.images.length > 0 ?
                                 <div className='flex gap-x-8'>
                                     <div className='my-5 grid grid-cols-2 gap-3'>
-                                        {game.images.map((image, index) => (
+                                        {game.images.map((image: any, index: any) => (
                                             <div className='relative w-[200px] h-[200px] border border-hashed p-4' key={index}>
                                                 <Image src={image} fill alt={`(${index}) image`} />
                                                 <button className='absolute right-2 top-2'
                                                     onClick={() => {
                                                         handleDeleteImage(image)
-                                                        setGame({ ...game, images: game.images.filter((img, i) => i !== index) })
+                                                        setGame({ ...game, images: game.images.filter((img: any, i: any) => i !== index) })
                                                         toast({
                                                             variant: 'default',
                                                             description: 'Image Deleted Succesfully'

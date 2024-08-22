@@ -1,7 +1,7 @@
 import { connectToDB } from "@/utils/database"
 import { newsModel } from "@/models/newsModel"
 
-export const POST = async (req) => {
+export const POST = async (req: any) => {
     const { title, mainDescription, description, NewsmainImage, NewsImages } = await req.json()
     try {
         await connectToDB()

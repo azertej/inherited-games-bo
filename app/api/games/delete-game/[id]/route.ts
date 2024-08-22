@@ -1,7 +1,7 @@
 import { connectToDB } from "@/utils/database"
 import { gameModel } from "@/models/gameModel"
 
-export const DELETE = async (req, { params }) => {
+export const DELETE = async (req: any, { params }: any) => {
     try {
         await connectToDB()
         await gameModel.findByIdAndDelete(params.id)

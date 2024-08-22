@@ -1,7 +1,7 @@
 import { connectToDB } from "@/utils/database"
 import { teamModel } from "@/models/teamModel"
 
-export const POST = async (req) => {
+export const POST = async (req: any) => {
     const { Teammate, Role, personImage, position } = await req.json()
     try {
         await connectToDB()

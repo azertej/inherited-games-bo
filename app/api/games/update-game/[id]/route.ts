@@ -1,7 +1,7 @@
 import { connectToDB } from "@/utils/database"
 import { gameModel } from "@/models/gameModel"
 
-export const GET = async (req, { params }) => {
+export const GET = async (req: any, { params }: any) => {
     try {
         await connectToDB()
         const postId = params.id
@@ -9,11 +9,11 @@ export const GET = async (req, { params }) => {
         if (!postById) return new Response('Cant find current post', { status: 404 })
         return new Response(JSON.stringify(postById), { status: 201 })
     } catch (error) {
-        return new Response(error, { status: 500 })
+        return new Response(`${error}`, { status: 500 })
     }
 }
 
-export const PATCH = async (req, { params }) => {
+export const PATCH = async (req: any, { params }: any) => {
     try {
         await connectToDB()
         const { title, description, mainDescription, genre, platforms, artStyle, graphic, myCareer, myTeamMode, mainImage ,images} = await req.json()
@@ -34,6 +34,6 @@ export const PATCH = async (req, { params }) => {
         await postById.save()
         return new Response(JSON.stringify(postById), { status: 201 })
     } catch (error) {
-        return new Response(error, { status: 500 })
+        return new Response(`${error}`, { status: 500 })
     }
 }

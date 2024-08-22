@@ -1,7 +1,7 @@
 import { connectToDB } from "@/utils/database"
 import { landingPageModel } from "@/models/landingPageModel"
 
-export const POST = async (req) => {
+export const POST = async (req: any) => {
     const { title, shortDescription, description, experience, competition, projects, heroImage } = await req.json()
     try {
         await connectToDB()

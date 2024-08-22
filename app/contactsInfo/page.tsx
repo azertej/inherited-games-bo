@@ -14,7 +14,7 @@ const Page = () => {
             setContactInfos(data)
         }
         getContact()
-    }, [])
+    }, [externeURL])
     
     return (
         <div>

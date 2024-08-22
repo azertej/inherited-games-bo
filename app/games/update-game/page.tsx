@@ -43,7 +43,7 @@ const UpdatePost = () => {
         if (postId) postById()
     }, [postId])
 
-    const updatePost = async (e) => {
+    const updatePost = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault()
         setSubmitting(true)
         if (!postId) alert('cant find post with this ID')

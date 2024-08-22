@@ -15,7 +15,7 @@ const Page = () => {
         NewsImages: []
     })
 
-    const createNews = async (e) => {
+    const createNews = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault()
         setSubmitting(true)
         try {

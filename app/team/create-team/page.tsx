@@ -14,7 +14,7 @@ const Page = () => {
         personImage: '',
     })
 
-    const createTeams = async (e) => {
+    const createTeams = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault()
         setSubmitting(true)
         try {

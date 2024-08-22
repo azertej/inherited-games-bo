@@ -31,7 +31,7 @@ const Page = () => {
      if(newsId) getNewsById()
   }, [newsId])
 
-  const editNews = async (e) => {
+  const editNews = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
     setSubmitting(true)
     if (!newsId) alert('cant find news with this ID')

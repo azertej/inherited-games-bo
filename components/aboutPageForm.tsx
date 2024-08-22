@@ -5,11 +5,11 @@ import Image from 'next/image'
 import { Textarea } from './ui/textarea'
 import { Loader2, XCircle } from 'lucide-react'
 
-const AboutForm = ({ type, infos, setInfos, submitting, handleInfos }) => {
+const AboutForm = ({ type, infos, setInfos, submitting, handleInfos }: any) => {
   const { toast } = useToast()
   const [deleteImage, setDeleteImage] = useState(false)
 
-  const handleDeleteImage = async (image) => {
+  const handleDeleteImage = async (image: any) => {
     setDeleteImage(true)
     const imageKey = image.substring(image.lastIndexOf('/') + 1)
     try {
@@ -81,13 +81,13 @@ const AboutForm = ({ type, infos, setInfos, submitting, handleInfos }) => {
           {infos.StuffsImages && infos.StuffsImages.length > 0 ?
             <div className='flex gap-x-8'>
               <div className='my-5 grid grid-cols-2 gap-3'>
-                {infos.StuffsImages.map((image, index) => (
+                {infos.StuffsImages.map((image: any, index: any) => (
                   <div className='relative w-[200px] h-[200px] border border-hashed p-4' key={index}>
                     <Image src={image} fill alt={`(${index}) image`} />
                     <button className='absolute right-2 top-2'
                       onClick={() => {
                         handleDeleteImage(image)
-                        setInfos({ ...infos, StuffsImages: infos.StuffsImages.filter((img, i) => i !== index) })
+                        setInfos({ ...infos, StuffsImages: infos.StuffsImages.filter((img: any, i: any) => i !== index) })
                         toast({
                           variant: 'default',
                           description: 'Image Deleted Succesfully'

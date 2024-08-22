@@ -5,7 +5,7 @@ import Image from 'next/image'
 import { Textarea } from './ui/textarea'
 import { Loader2, XCircle } from 'lucide-react'
 
-const LandingPageForm = ({ type, infos, setInfos, submitting, handleInfos }) => {
+const LandingPageForm = ({ type, infos, setInfos, submitting, handleInfos }: any) => {
   const { toast } = useToast()
   const [deleteImage, setDeleteImage] = useState(false)
 

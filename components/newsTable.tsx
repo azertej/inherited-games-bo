@@ -5,11 +5,11 @@ import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '.
 
 const fields = ['NewsmainImage', 'title', 'mainDescription', 'description']
 
-const NewsTable = ({ data, handleEdit, handleDelete }) => {
+const NewsTable = ({ data, handleEdit, handleDelete }: any) => {
 
     return (
         <div className='flex flex-col gap-y-3 mt-2'>
-            {data.map((post) => {
+            {data.map((post: any) => {
                 return (
                     <div className='flex flex-col gap-y-5 border border-solid' key={post._id}>
                         <div className='flex gap-x-3 items-center w-[1500px] border border-solid border-black rounded-md'>
@@ -28,7 +28,7 @@ const NewsTable = ({ data, handleEdit, handleDelete }) => {
                                         {fields.map((field) => {
                                             return (
                                                 <TableCell className='w-1/4' key={field}>
-                                                    {field === 'NewsmainImage' ? <Image src={post.NewsmainImage} width={28} height={28} /> : post[field]}
+                                                    {field === 'NewsmainImage' ? <Image src={post.NewsmainImage} alt='NewsmainImage' width={28} height={28} /> : post[field]}
                                                 </TableCell>
                                             )
                                         })}

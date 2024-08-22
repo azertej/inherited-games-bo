@@ -5,11 +5,11 @@ import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '.
 
 const fields = ['aboutPage_Image','title', 'description']
 
-const AboutPageTable = ({ data, handleEdit }) => {
+const AboutPageTable = ({ data, handleEdit }: any) => {
 
   return (
     <div className='flex flex-col gap-y-3 mt-2'>
-      {data.map((section) => {
+      {data.map((section: any) => {
         return (
           <div className='flex flex-col gap-y-5 border border-solid' key={section._id}>
             <div className='flex gap-x-3 items-center w-[1500px] border border-solid border-black rounded-md'>
@@ -28,7 +28,7 @@ const AboutPageTable = ({ data, handleEdit }) => {
                     {fields.map((field) => {
                       return (
                         <TableCell className='w-1/3' key={field}>
-                          {field === 'aboutPage_Image'? <Image src={section.aboutPageImage} width={96} height={96} /> : section[field] }
+                          {field === 'aboutPage_Image'? <Image src={section.aboutPageImage} alt='aboutPageImage' width={96} height={96} /> : section[field] }
                         </TableCell>
                       )
                     })}

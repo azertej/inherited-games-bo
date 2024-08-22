@@ -1,7 +1,7 @@
 import { gameModel } from '../../../../models/gameModel';
 import { connectToDB } from "@/utils/database"
 
-export const POST = async (req) => {
+export const POST = async (req: any) => {
     const { title, description, mainDescription, genre, platforms, artStyle, graphic, myCareer, myTeamMode, mainImage, images } = await req.json()
     try {
         await connectToDB()

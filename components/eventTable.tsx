@@ -5,10 +5,10 @@ import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '.
 
 const fields = ['eventMainImage', 'title', 'EventMaindescription', 'EventDescription','Date']
 
-const NewsTable = ({ data, handleEdit, handleDelete }) => {
+const NewsTable = ({ data, handleEdit, handleDelete }: any) => {
     return (
         <div className='flex flex-col gap-y-3 mt-2'>
-            {data.map((Event) => {
+            {data.map((Event: any) => {
                 return (
                     <div className='flex flex-col gap-y-5 border border-solid' key={Event._id}>
                         <div className='flex gap-x-3 items-center w-[1500px] border border-solid border-black rounded-md'>
@@ -27,7 +27,7 @@ const NewsTable = ({ data, handleEdit, handleDelete }) => {
                                         {fields.map((field) => {
                                             return (
                                                 <TableCell className='w-1/5' key={field}>
-                                                    {field === 'eventMainImage' ? <Image src={Event.eventMainImage} width={28} height={28} /> : Event[field]}
+                                                    {field === 'eventMainImage' ? <Image src={Event.eventMainImage} alt='eventMainImage' width={28} height={28} /> : Event[field]}
                                                 </TableCell>
                                             )
                                         })}

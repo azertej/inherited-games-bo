@@ -12,10 +12,10 @@ const Page = () => {
         title: '',
         shortDescription: '',
         description: '',
-   
+
     })
 
-    const createSection = async (e) => {
+    const createSection = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault()
         setSubmitting(true)
         try {

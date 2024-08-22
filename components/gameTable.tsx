@@ -5,11 +5,11 @@ import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '.
 
 const fields = ['mainImage','title', 'description', 'mainDescription', 'genre', 'platforms', 'artStyle', 'graphic', 'myCareer', 'myTeamMode']
 
-const GameTable = ({ data, handleEdit, handleDelete }) => {
+const GameTable = ({ data, handleEdit, handleDelete }: any) => {
   
     return (
         <div className='flex flex-col gap-y-3 mt-2'>
-            {data.map((game) => {
+            {data.map((game: any) => {
                 return (
                     <div className='flex flex-col gap-y-5 border border-solid' key={game._id}>
                         <div className='flex gap-x-3 items-center w-[1500px] border border-solid border-black rounded-md'>
@@ -28,7 +28,7 @@ const GameTable = ({ data, handleEdit, handleDelete }) => {
                                         {fields.map((field) => {
                                             return (
                                                 <TableCell className='w-20' key={field}>
-                                                    {field === 'mainImage'? <Image src={game.mainImage} width={40} height={40} /> : game[field] }
+                                                    {field === 'mainImage'? <Image src={game.mainImage} alt='mainImage' width={40} height={40} /> : game[field] }
                                                 </TableCell>
                                             )
                                         })}

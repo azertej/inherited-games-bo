@@ -7,7 +7,7 @@ import { useEffect, useState } from "react";
 export default function Home() {
   const router = useRouter()
   const [infos, setInfos] = useState([])
-  
+
   useEffect(() => {
     const fetchInfos = async () => {
       const response = await fetch('/api/contactPage/get-contactPage')
@@ -17,13 +17,13 @@ export default function Home() {
     fetchInfos()
   }, [])
 
-  const handleEdit = (section) => {
+  const handleEdit = (section: any) => {
     router.push(`/contactPage/update-contactPage?id=${section._id}`)
   }
 
   return (
     <main className="w-full h-screen flex justify-center items-center">
-        <ContactPageTable data={infos} handleEdit={handleEdit} />
+      <ContactPageTable data={infos} handleEdit={handleEdit} />
     </main>
   )
 }

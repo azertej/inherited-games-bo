@@ -1,7 +1,7 @@
 import { contactPageModel } from "@/models/contactPageModel"
 import { connectToDB } from "@/utils/database"
 
-export const POST = async (req) => {
+export const POST = async (req: any) => {
     const { title, description, shortDescription } = await req.json()
     try {
         await connectToDB()

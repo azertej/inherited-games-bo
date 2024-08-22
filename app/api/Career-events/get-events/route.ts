@@ -1,7 +1,7 @@
 import { eventModel } from '@/models/eventModel';
 import { connectToDB } from '../../../../utils/database';
 
-export const GET = async (req) => {
+export const GET = async (req: any) => {
     try {
         await connectToDB()
         const events = await eventModel.find()

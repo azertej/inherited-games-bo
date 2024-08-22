@@ -5,7 +5,7 @@ import Image from 'next/image'
 import { Textarea } from './ui/textarea'
 import { Loader2, XCircle } from 'lucide-react'
 
-const NewsForm = ({ type, news, setNews, submitting, handleNews }) => {
+const NewsForm = ({ type, news, setNews, submitting, handleNews }: any) => {
   const { toast } = useToast()
   const [deleteImage, setDeleteImage] = useState(false)
 
@@ -86,13 +86,13 @@ const NewsForm = ({ type, news, setNews, submitting, handleNews }) => {
             {news.NewsImages && news.NewsImages.length > 0 ?
               <div className='flex gap-x-8'>
                 <div className='my-5 grid grid-cols-2 gap-3'>
-                  {news.NewsImages.map((image, index) => (
+                  {news.NewsImages.map((image: any, index: any) => (
                     <div className='relative w-[200px] h-[200px] border border-hashed p-4' key={index}>
                       <Image src={image} fill alt={`(${index}) image`} />
                       <button className='absolute right-2 top-2'
                         onClick={() => {
                           handleDeleteImage(image)
-                          setNews({ ...news, NewsImages: news.NewsImages.filter((img, i) => i !== index) })
+                          setNews({ ...news, NewsImages: news.NewsImages.filter((img: any, i: any) => i !== index) })
                         }}
                       >
                         {deleteImage ? <Loader2 /> : <XCircle />}

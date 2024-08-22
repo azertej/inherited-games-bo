@@ -1,7 +1,7 @@
 import { connectToDB } from "@/utils/database"
 import { eventModel } from "@/models/eventModel"
 
-export const POST = async (req)=>{
+export const POST = async (req: any)=>{
     const {title,EventMaindescription,EventDescription,Date,year,eventMainImage,eventImages,Slidedirection} = await req.json()
     try {
         await connectToDB()

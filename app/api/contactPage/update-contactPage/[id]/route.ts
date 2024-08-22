@@ -1,7 +1,7 @@
 import { connectToDB } from "@/utils/database"
 import { contactPageModel } from "@/models/contactPageModel"
 
-export const GET = async (req, { params }) => {
+export const GET = async (req: any, { params }: any) => {
     try {
         await connectToDB()
         const postId = params.id
@@ -14,7 +14,7 @@ export const GET = async (req, { params }) => {
 }
 
 
-export const PATCH = async (req, { params }) => {
+export const PATCH = async (req: any, { params }: any) => {
     
     try {
         await connectToDB()

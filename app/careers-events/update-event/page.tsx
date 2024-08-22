@@ -37,7 +37,7 @@ const UpdateEvent = () => {
         if (eventId) eventById()
     }, [eventId])
 
-    const updateEvent = async (e) => {
+    const updateEvent = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault()
         setSubmitting(true)
         if (!eventId) alert('cant find event with this ID')

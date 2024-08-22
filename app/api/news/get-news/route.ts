@@ -1,7 +1,7 @@
 import { connectToDB } from "@/utils/database"
 import { newsModel } from "@/models/newsModel"
 
-export const GET = async (req) => {
+export const GET = async (req: any) => {
     try {
         await connectToDB()
         const news = await newsModel.find()

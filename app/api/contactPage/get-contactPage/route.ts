@@ -1,7 +1,7 @@
 import { connectToDB } from "@/utils/database"
 import { contactPageModel } from "@/models/contactPageModel"
 
-export const GET = async (req) => {
+export const GET = async (req: any) => {
     try {
         await connectToDB()
         const infos = await contactPageModel.find()

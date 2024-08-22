@@ -5,7 +5,7 @@ import Image from 'next/image'
 import { Textarea } from './ui/textarea'
 import { Loader2, XCircle } from 'lucide-react'
 
-const EventForm = ({ type, event, setEvent, submitting, handleSubmit }) => {
+const EventForm = ({ type, event, setEvent, submitting, handleSubmit }: any) => {
   const { toast } = useToast()
   const [deleteImage, setDeleteImage] = useState(false)
   
@@ -102,13 +102,13 @@ const EventForm = ({ type, event, setEvent, submitting, handleSubmit }) => {
             {event.eventImages && event.eventImages.length > 0 ?
               <div className='flex gap-x-8'>
                 <div className='my-5 grid grid-cols-2 gap-3'>
-                  {event.eventImages.map((image, index) => (
+                  {event.eventImages.map((image: any, index: any) => (
                     <div className='relative w-[200px] h-[200px] border border-hashed p-4' key={index}>
                       <Image src={image} fill alt={`(${index}) image`} />
                       <button className='absolute right-2 top-2'
                         onClick={() => {
                           handleDeleteImage(image)
-                          setEvent({ ...event, eventImages: event.eventImages.filter((img, i) => i !== index) })
+                          setEvent({ ...event, eventImages: event.eventImages.filter((img: any, i: any) => i !== index) })
                         }}
                       >
                         {deleteImage ? <Loader2 /> : <XCircle />}

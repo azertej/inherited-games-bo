@@ -5,11 +5,11 @@ import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '.
 
 const fields = ['userName','email','description']
 
-const ContactsTable = ({ data }) => {
+const ContactsTable = ({ data }: any) => {
 
   return (
     <div className='flex flex-col gap-y-3 mt-2'>
-      {data.map((contact) => {
+      {data.map((contact: any) => {
         return (
           <div className='flex flex-col gap-y-5 border border-solid mx-5 border-black rounded-md' key={contact._id}>
               <Table >

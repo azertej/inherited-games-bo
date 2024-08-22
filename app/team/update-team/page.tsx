@@ -29,7 +29,7 @@ const UpdateTeam = () => {
         if (matetId) teamById()
     }, [matetId])
 
-    const updateTeam = async (e) => {
+    const updateTeam = async (e: any) => {
         e.preventDefault()
         setSubmitting(true)
         if (!matetId) alert('cant find team with this ID')
@@ -39,7 +39,7 @@ const UpdateTeam = () => {
                 body: JSON.stringify({
                     Teammate: teams.Teammate,
                     Role: teams.Role,
-                    position : teams.position,
+                    position: teams.position,
                     personImage: teams.personImage,
                 })
             })

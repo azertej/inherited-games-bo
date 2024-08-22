@@ -5,7 +5,7 @@ import Image from 'next/image'
 import { Textarea } from './ui/textarea'
 import { Loader2, XCircle } from 'lucide-react'
 
-const TeamForm = ({ type, teams, setTeams, submitting, handleTeams }) => {
+const TeamForm = ({ type, teams, setTeams, submitting, handleTeams }: any) => {
 
   const { toast } = useToast()
   const [deleteImage, setDeleteImage] = useState(false)

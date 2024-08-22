@@ -6,7 +6,9 @@ import { useEffect, useState } from "react";
 export default function Home() {
   const router = useRouter()
   const [events, setEvents] = useState([])
-  
+  interface Event {
+    _id: string;
+  }
   useEffect(() => {
     const fetchEvents = async () => {
       const response = await fetch('/api/Career-events/get-events')
@@ -16,19 +18,19 @@ export default function Home() {
     fetchEvents()
   }, [])
 
-  const handleEdit = (event) => {
+  const handleEdit = (event: Event) => {
     router.push(`/careers-events/update-event?id=${event._id}`)
   }
 
 
-  const handleDelete = async (event) => {
+  const handleDelete = async (event: Event) => {
     const isconfirmed = confirm("Are you sure to delete this event")
     if (isconfirmed) {
       try {
         await fetch(`/api/Career-events/delete-event/${event._id.toString()}`, {
           method: 'DELETE',
         })
-        const eventsAfterDelete = events.filter((e) => e._id !== event._id)
+        const eventsAfterDelete = events.filter((e: any) => e._id !== event._id)
         setEvents(eventsAfterDelete)
       } catch (error) {
         console.log(error)
@@ -38,7 +40,7 @@ export default function Home() {
 
   return (
     <main className="w-full my-5 flex justify-center items-center">
-        <EventTable data={events} handleEdit={handleEdit} handleDelete={handleDelete} />
+      <EventTable data={events} handleEdit={handleEdit} handleDelete={handleDelete} />
     </main>
   );
 }

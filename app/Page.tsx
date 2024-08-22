@@ -52,7 +52,7 @@ const Page = () => {
       setContactInfos(data)
     }
     getContact()
-  }, [])
+  }, [externeURL])
 
 
   const cardsList = [

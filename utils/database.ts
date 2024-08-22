@@ -8,11 +8,13 @@ export const connectToDB = async () => {
         console.log('Server is already connected to DB')
         return;
     }
+    const mongoUrl = process.env.MONGODB_URL;
+    if (!mongoUrl) {
+        throw new Error('MONGODB_URL environment variable is not defined');
+    }
     try {
-        await mongoose.connect(process.env.MONGODB_URL, {
+        await mongoose.connect(mongoUrl, {
             dbName: 'InheritedGamesAdmin',
-            useNewUrlParser: true,
-            useUnifiedTopology: true
         })
         isConnected = true
         console.log('MongoDb connected')

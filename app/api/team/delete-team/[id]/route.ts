@@ -1,7 +1,7 @@
 import { connectToDB } from "@/utils/database"
 import { teamModel } from "@/models/teamModel"
 
-export const DELETE = async (req, { params }) => {
+export const DELETE = async (req: any, { params }: any) => {
     try {
         await connectToDB()
         await teamModel.findByIdAndDelete(params.id)

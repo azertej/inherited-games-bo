@@ -1,7 +1,7 @@
 import { connectToDB } from "@/utils/database"
 import { landingPageModel } from "@/models/landingPageModel"
 
-export const GET = async (req) => {
+export const GET = async (req: any) => {
     try {
         await connectToDB()
         const infos = await landingPageModel.find()

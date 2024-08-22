@@ -1,7 +1,7 @@
 import { gameModel } from '../../../../models/gameModel';
 import { connectToDB } from '../../../../utils/database';
 
-export const GET = async (req) => {
+export const GET = async (req: any) => {
     try {
         await connectToDB()
         const games = await gameModel.find()

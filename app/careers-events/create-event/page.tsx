@@ -10,15 +10,15 @@ const Page = () => {
     const [event, setEvent] = useState({
         title: '',
         EventMaindescription: '',
-        EventDescription:'',
-        Date:'',
-        year:'',
-        eventMainImage:'',
-        Slidedirection:'',
-        eventImages:[]
+        EventDescription: '',
+        Date: '',
+        year: '',
+        eventMainImage: '',
+        Slidedirection: '',
+        eventImages: []
     })
 
-    const createEvent = async (e) => {
+    const createEvent = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault()
         setSubmitting(true)
         try {
@@ -31,7 +31,7 @@ const Page = () => {
                     Date: event.Date,
                     year: event.year,
                     eventMainImage: event.eventMainImage,
-                    Slidedirection:event.Slidedirection,
+                    Slidedirection: event.Slidedirection,
                     eventImages: event.eventImages,
                 })
             })

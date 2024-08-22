@@ -29,7 +29,7 @@ const UpdateSection = () => {
         if (sectionId) eventById()
     }, [sectionId])
 
-    const updateSection = async (e) => {
+    const updateSection = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault()
         setSubmitting(true)
         if (!sectionId) alert('cant find event with this ID')

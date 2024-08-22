@@ -6,7 +6,7 @@ import { useEffect, useState } from "react";
 export default function Home() {
   const router = useRouter()
   const [games, setGames] = useState([])
-  
+
   useEffect(() => {
     const fetchPosts = async () => {
       const response = await fetch('/api/games/get-games')
@@ -16,19 +16,19 @@ export default function Home() {
     fetchPosts()
   }, [])
 
-  const handleEdit = (game) => {
+  const handleEdit = (game: any) => {
     router.push(`/games/update-game?id=${game._id}`)
   }
 
 
-  const handleDelete = async (game) => {
+  const handleDelete = async (game: any) => {
     const isconfirmed = confirm("Are you sure to delete this game")
     if (isconfirmed) {
       try {
         await fetch(`/api/games/delete-game/${game._id.toString()}`, {
           method: 'DELETE',
         })
-        const gamesAfterDelete = games.filter((g) => g._id !== game._id)
+        const gamesAfterDelete = games.filter((g: any) => g._id !== game._id)
         setGames(gamesAfterDelete)
       } catch (error) {
         console.log(error)

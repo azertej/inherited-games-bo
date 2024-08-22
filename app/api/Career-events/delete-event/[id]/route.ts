@@ -1,7 +1,7 @@
 import { connectToDB } from "@/utils/database"
 import { eventModel } from "@/models/eventModel"
 
-export const DELETE = async (req, { params }) => {
+export const DELETE = async (req: any, { params }: any) => {
     try {
         await connectToDB()
         await eventModel.findByIdAndDelete(params.id)

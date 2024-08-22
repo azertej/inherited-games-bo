@@ -3,7 +3,7 @@ import React from 'react'
 import { Textarea } from './ui/textarea'
 
 
-const ContactForm = ({ type, infos, setInfos, submitting, handleInfos }) => {
+const ContactForm = ({ type, infos, setInfos, submitting, handleInfos }: any) => {
     return (
         <div>
             <form onSubmit={handleInfos} className='flex justify-center'>

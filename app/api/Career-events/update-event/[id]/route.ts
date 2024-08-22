@@ -1,7 +1,7 @@
 import { connectToDB } from "@/utils/database"
 import { eventModel } from "@/models/eventModel"
 
-export const GET = async (req, { params }) => {
+export const GET = async (req: any, { params }: any) => {
     try {
         await connectToDB()
         const eventId = params.id
@@ -13,7 +13,7 @@ export const GET = async (req, { params }) => {
     }
 }
 
-export const PATCH = async (req, { params }) => {
+export const PATCH = async (req: any, { params }: any) => {
     try {
         await connectToDB()
         const { title, EventMaindescription, EventDescription, Date, year, eventMainImage, eventImages, Slidedirection } = await req.json()

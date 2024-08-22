@@ -5,11 +5,11 @@ import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '.
 
 const fields = ['title', 'shortDescription', 'description', 'experience', 'competition', 'projects']
 
-const LandingPageTable = ({ data, handleEdit }) => {
+const LandingPageTable = ({ data, handleEdit }: any) => {
 
   return (
     <div className='flex flex-col gap-y-3 mt-2'>
-      {data.map((info) => {
+      {data.map((info: any) => {
         return (
           <div className='flex flex-col gap-y-5 border border-solid' key={info._id}>
             <div className='flex gap-x-3 items-center w-[1500px] border border-solid border-black rounded-md'>

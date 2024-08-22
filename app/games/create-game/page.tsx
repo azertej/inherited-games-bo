@@ -20,7 +20,7 @@ const Page = () => {
         images:[]
     })
 
-    const createPost = async (e) => {
+    const createPost = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault()
         setSubmitting(true)
         try {
