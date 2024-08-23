@@ -1,9 +1,9 @@
 'use client'
 import { useSearchParams, useRouter } from 'next/navigation'
-import React, { useEffect, useState } from 'react'
+import React, { Suspense, useEffect, useState } from 'react'
 import GamesForm from '@/components/gamesForm'
 
-const UpdatePost = () => {
+const Page = () => {
     const router = useRouter()
     const searchParams = useSearchParams()
     const postId = searchParams.get('id')
@@ -81,4 +81,12 @@ const UpdatePost = () => {
 
 }
 
-export default UpdatePost
+
+const UpdateGame = () => {
+    return (
+        <Suspense>
+            <Page />
+        </Suspense>
+    )
+}
+export default UpdateGame

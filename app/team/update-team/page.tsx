@@ -1,9 +1,9 @@
 'use client'
 import { useSearchParams, useRouter } from 'next/navigation'
-import React, { useEffect, useState } from 'react'
+import React, { Suspense, useEffect, useState } from 'react'
 import TeamForm from '@/components/teamForm'
 
-const UpdateTeam = () => {
+const Page = () => {
     const router = useRouter()
     const searchParams = useSearchParams()
     const matetId = searchParams.get('id')
@@ -58,4 +58,12 @@ const UpdateTeam = () => {
         </div>
     )
 }
-export default UpdateTeam
+
+const UpdateTeam = () => {
+    return (
+        <Suspense>
+            <Page />
+        </Suspense>
+    )
+  }
+  export default UpdateTeam

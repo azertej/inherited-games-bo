@@ -1,10 +1,10 @@
 'use client'
 
 import { useSearchParams, useRouter } from 'next/navigation'
-import React, { useEffect, useState } from 'react'
+import React, { Suspense, useEffect, useState } from 'react'
 import ContactForm from '@/components/contactPageForm'
 
-const UpdateSection = () => {
+const Page = () => {
     const router = useRouter()
     const searchParams = useSearchParams()
     const sectionId = searchParams.get('id')
@@ -54,6 +54,14 @@ const UpdateSection = () => {
         <div className='px-5 mt-28'>
             <ContactForm type='edit' infos={infos} setInfos={setInfos} submitting={submitting} handleInfos={updateSection} />
         </div>
+    )
+}
+
+const UpdateSection = () => {
+    return (
+        <Suspense>
+            <Page />
+        </Suspense>
     )
 }
 export default UpdateSection

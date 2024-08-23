@@ -1,7 +1,7 @@
 'use client'
 import NewsForm from '@/components/newsForm'
 import { useSearchParams, useRouter } from 'next/navigation'
-import React, { useEffect, useState } from 'react'
+import React, { Suspense, useEffect, useState } from 'react'
 
 const Page = () => {
   const router = useRouter()
@@ -63,4 +63,11 @@ const Page = () => {
   )
 }
 
-export default Page
+const UpdateNews = () => {
+  return (
+      <Suspense>
+          <Page />
+      </Suspense>
+  )
+}
+export default UpdateNews

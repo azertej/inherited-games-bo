@@ -2,8 +2,9 @@
 import { useSearchParams, useRouter } from 'next/navigation'
 import React, { useEffect, useState } from 'react'
 import EventForm from '@/components/eventForm'
+import { Suspense } from 'react'
 
-const UpdateEvent = () => {
+const Page = () => {
     const router = useRouter()
     const searchParams = useSearchParams()
     const eventId = searchParams.get('id')
@@ -15,7 +16,7 @@ const UpdateEvent = () => {
         Date: '',
         year: '',
         eventMainImage: '',
-        Slidedirection:'',
+        Slidedirection: '',
         eventImages: []
     })
 
@@ -30,7 +31,7 @@ const UpdateEvent = () => {
                 Date: data.Date,
                 year: data.year,
                 eventMainImage: data.eventMainImage,
-                Slidedirection:data.Slidedirection,
+                Slidedirection: data.Slidedirection,
                 eventImages: data.eventImages,
             })
         }
@@ -51,7 +52,7 @@ const UpdateEvent = () => {
                     Date: event.Date,
                     year: event.year,
                     eventMainImage: event.eventMainImage,
-                    Slidedirection:event.Slidedirection,
+                    Slidedirection: event.Slidedirection,
                     eventImages: event.eventImages,
                 })
             })
@@ -68,6 +69,15 @@ const UpdateEvent = () => {
         <div className='px-5 mt-28'>
             <EventForm type='edit' event={event} setEvent={setEvent} submitting={submitting} handleSubmit={updateEvent} />
         </div>
+    )
+}
+
+
+const UpdateEvent = () => {
+    return (
+        <Suspense>
+            <Page />
+        </Suspense>
     )
 }
 export default UpdateEvent

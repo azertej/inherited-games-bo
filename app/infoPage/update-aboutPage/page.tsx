@@ -1,9 +1,9 @@
 'use client'
 import { useSearchParams, useRouter } from 'next/navigation'
-import React, { useEffect, useState } from 'react'
+import React, { Suspense, useEffect, useState } from 'react'
 import AboutForm from '@/components/aboutPageForm'
 
-const UpdateSection = () => {
+const Page = () => {
     const router = useRouter()
     const searchParams = useSearchParams()
     const sectionId = searchParams.get('id')
@@ -56,6 +56,14 @@ const UpdateSection = () => {
         <div className='px-5 mt-28'>
             <AboutForm type='edit' infos={infos} setInfos={setInfos} submitting={submitting} handleInfos={updateSection} />
         </div>
+    )
+}
+
+const UpdateSection = () => {
+    return (
+        <Suspense>
+            <Page />
+        </Suspense>
     )
 }
 export default UpdateSection
