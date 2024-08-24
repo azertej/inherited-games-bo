@@ -142,7 +142,7 @@ const Navbar = () => {
                         </DropdownMenu>
                     </div>
                 </div>
-                <div className='relative w-20 h-20 cursor-pointer' onClick={() => window.open(`${process.env.NEXT_PUBLIC_REMOTE_API_URL}`,'_blink')}>
+                <div className='relative w-20 h-20 cursor-pointer' onClick={() => window.open('https://inherited-games-app.vercel.app/','_blink')}>
                     <Image src='/pic.png' alt='mainPic' fill />
                 </div>
             </div>

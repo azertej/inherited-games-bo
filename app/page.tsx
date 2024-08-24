@@ -44,7 +44,7 @@ const Page = () => {
   }, [])
 
   const [contactsInfo, setContactInfos] = useState([])
-  const externeURL = process.env.NEXT_PUBLIC_REMOTE_API_URL
+  const externeURL = 'https://inherited-games-app.vercel.app/'
   useEffect(() => {
     const getContact = async () => {
       const response = await fetch(`${externeURL}/api/contactAPI/get-contacts`)
