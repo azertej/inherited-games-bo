@@ -11,101 +11,101 @@ import { UserSearch } from 'lucide-react'
 
 const Page = () => {
 
-  const router = useRouter()
-  const [games, setGames] = useState([])
-  const [events, setEvents] = useState([])
-  const [teams, setTeams] = useState([])
-  const [news, setNews] = useState([])
-  useEffect(() => {
-    const fetchPosts = async () => {
-      const response = await fetch('/api/games/get-games')
-      const data = await response.json()
-      setGames(data)
-    }
-    fetchPosts()
-    const fetchEvents = async () => {
-      const response = await fetch('/api/Career-events/get-events')
-      const data = await response.json()
-      setEvents(data)
-    }
-    fetchEvents()
-    const fetchTeam = async () => {
-      const response = await fetch('/api/team/get-teams')
-      const data = await response.json()
-      setTeams(data)
-    }
-    fetchTeam()
-    const getNews = async () => {
-      const response = await fetch('/api/news/get-news')
-      const data = await response.json()
-      setNews(data)
-    }
-    getNews()
-  }, [])
+  // const router = useRouter()
+  // const [games, setGames] = useState([])
+  // const [events, setEvents] = useState([])
+  // const [teams, setTeams] = useState([])
+  // const [news, setNews] = useState([])
+  // useEffect(() => {
+  //   const fetchPosts = async () => {
+  //     const response = await fetch('/api/games/get-games')
+  //     const data = await response.json()
+  //     setGames(data)
+  //   }
+  //   fetchPosts()
+  //   const fetchEvents = async () => {
+  //     const response = await fetch('/api/Career-events/get-events')
+  //     const data = await response.json()
+  //     setEvents(data)
+  //   }
+  //   fetchEvents()
+  //   const fetchTeam = async () => {
+  //     const response = await fetch('/api/team/get-teams')
+  //     const data = await response.json()
+  //     setTeams(data)
+  //   }
+  //   fetchTeam()
+  //   const getNews = async () => {
+  //     const response = await fetch('/api/news/get-news')
+  //     const data = await response.json()
+  //     setNews(data)
+  //   }
+  //   getNews()
+  // }, [])
 
-  const [contactsInfo, setContactInfos] = useState([])
-  const externeURL = process.env.NEXT_PUBLIC_REMOTE_API_URL || 'http://localhost:3001'
-  useEffect(() => {
-    const getContact = async () => {
-      const response = await fetch(`${externeURL}/api/contactAPI/get-contacts`)
-      const data = await response.json()
-      setContactInfos(data)
-    }
-    getContact()
-  }, [externeURL])
+  // const [contactsInfo, setContactInfos] = useState([])
+  // const externeURL = process.env.NEXT_PUBLIC_REMOTE_API_URL || 'http://localhost:3001'
+  // useEffect(() => {
+  //   const getContact = async () => {
+  //     const response = await fetch(`${externeURL}/api/contactAPI/get-contacts`)
+  //     const data = await response.json()
+  //     setContactInfos(data)
+  //   }
+  //   getContact()
+  // }, [externeURL])
 
 
-  const cardsList = [
-    {
-      number: games.length,
-      description: 'Total Games',
-      image: Gamepad2,
-      link: '/games',
-      bgColor: 'bg-blue-400',
-      infoBg: 'bg-blue-500',
-      infoColor: 'text-blue-500'
-    },
-    {
-      number: events.length,
-      description: 'Total Events',
-      image: CalendarCheck,
-      link: '/careers-events',
-      bgColor: 'bg-orange-300',
-      infoBg: 'bg-orange-400',
-      infoColor: 'text-orange-500'
-    },
-    {
-      number: teams.length,
-      description: 'Total Team',
-      image: User,
-      link: '/team',
-      bgColor: 'bg-red-400',
-      infoBg: 'bg-red-500',
-      infoColor: 'text-red-500'
-    },
-    {
-      number: news.length,
-      description: 'Total News',
-      image: Newspaper,
-      link: '/news',
-      bgColor: 'bg-green-400',
-      infoBg: 'bg-green-500',
-      infoColor: 'text-green-500'
-    },
-    {
-      number: contactsInfo.length,
-      description: 'Total Contacts',
-      image: UserSearch,
-      link: '/contactsInfo',
-      bgColor: 'bg-gray-400',
-      infoBg: 'bg-gray-500',
-      infoColor: 'text-gray-500'
-    }
-  ]
+  // const cardsList = [
+  //   {
+  //     number: games.length,
+  //     description: 'Total Games',
+  //     image: Gamepad2,
+  //     link: '/games',
+  //     bgColor: 'bg-blue-400',
+  //     infoBg: 'bg-blue-500',
+  //     infoColor: 'text-blue-500'
+  //   },
+  //   {
+  //     number: events.length,
+  //     description: 'Total Events',
+  //     image: CalendarCheck,
+  //     link: '/careers-events',
+  //     bgColor: 'bg-orange-300',
+  //     infoBg: 'bg-orange-400',
+  //     infoColor: 'text-orange-500'
+  //   },
+  //   {
+  //     number: teams.length,
+  //     description: 'Total Team',
+  //     image: User,
+  //     link: '/team',
+  //     bgColor: 'bg-red-400',
+  //     infoBg: 'bg-red-500',
+  //     infoColor: 'text-red-500'
+  //   },
+  //   {
+  //     number: news.length,
+  //     description: 'Total News',
+  //     image: Newspaper,
+  //     link: '/news',
+  //     bgColor: 'bg-green-400',
+  //     infoBg: 'bg-green-500',
+  //     infoColor: 'text-green-500'
+  //   },
+  //   {
+  //     number: contactsInfo.length,
+  //     description: 'Total Contacts',
+  //     image: UserSearch,
+  //     link: '/contactsInfo',
+  //     bgColor: 'bg-gray-400',
+  //     infoBg: 'bg-gray-500',
+  //     infoColor: 'text-gray-500'
+  //   }
+  // ]
   
   return (
     <div className='h-screen flex justify-center items-center'>
-      <div className='grid grid-cols-4 gap-10'>
+      {/* <div className='grid grid-cols-4 gap-10'>
         {cardsList.map((card, index) => (
           <div key={index} className='flex flex-col w-[320px] h-[280px] border border-gray-500 rounded-xl overflow-hidden' >
             <div className={`${card.bgColor} flex gap-x-8 justify-between items-center h-[80%] px-5`}>
@@ -123,7 +123,12 @@ const Page = () => {
             </div>
           </div>
         ))}
-      </div>
+      </div> */}
+      <span className='text-black'>
+
+      hellooo
+
+      </span>
     </div>
   )
 }
