@@ -142,7 +142,7 @@ const Navbar = () => {
                         </DropdownMenu>
                     </div>
                 </div>
-                <div className='relative w-20 h-20 cursor-pointer' onClick={() => window.open('http://localhost:3001/','_blink')}>
+                <div className='relative w-20 h-20 cursor-pointer' onClick={() => window.open(`${process.env.NEXT_PUBLIC_REMOTE_API_URL}`,'_blink')}>
                     <Image src='/pic.png' alt='mainPic' fill />
                 </div>
             </div>
