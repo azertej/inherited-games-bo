@@ -44,7 +44,7 @@ const Page = () => {
   }, [])
 
   const [contactsInfo, setContactInfos] = useState([])
-  const externeURL = process.env.NEXT_PUBLIC_REMOTE_API_URL || 'http://localhost:3001'
+  const externeURL = process.env.NEXT_PUBLIC_REMOTE_API_URL
   useEffect(() => {
     const getContact = async () => {
       const response = await fetch(`${externeURL}/api/contactAPI/get-contacts`)
