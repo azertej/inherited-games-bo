@@ -11,7 +11,7 @@ export const POST = async (req: any) => {
         await newGame.save()
         return new Response(JSON.stringify(newGame), { status: 201 })
     } catch (error) {
-        return new Response('Failed to Create a new Game', { status: 500 })
+        return new Response(JSON.stringify(error), { status: 500 },)
     }
 
 }
