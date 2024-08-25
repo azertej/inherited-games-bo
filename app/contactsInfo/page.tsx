@@ -6,16 +6,26 @@ import { useState, useEffect } from 'react'
 
 const Page = () => {
     const [contactsInfo, setContactInfos] = useState([])
-    const externeURL = process.env.NEXT_PUBLIC_REMOTE_API_URL || 'http://localhost:3001'
+    const externeURL = 'https://inherited-games-app.vercel.app/'
     useEffect(() => {
         const getContact = async () => {
-            const response = await fetch(`${externeURL}/api/contactAPI/get-contacts`)
-            const data = await response.json()
-            setContactInfos(data)
+            try {
+                const response = await fetch(`${externeURL}/api/contactAPI/get-contacts`, {
+                    redirect: 'follow'
+                })
+                if (!response.ok) {
+                    throw new Error('Network response was not ok')
+                }
+                const data = await response.json()
+                setContactInfos(data)
+            } catch (error) {
+                console.error('Error fetching data:', error)
+            }
+
         }
         getContact()
     }, [externeURL])
-    
+
     return (
         <div>
             <ContactsTable data={contactsInfo} />
