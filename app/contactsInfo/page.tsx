@@ -6,7 +6,7 @@ import { useState, useEffect } from 'react'
 
 const Page = () => {
     const [contactsInfo, setContactInfos] = useState([])
-    const externeURL = 'https://inherited-games-app.vercel.app/'
+    const externeURL = 'https://inherited-games-app.vercel.app'
     useEffect(() => {
         const getContact = async () => {
             try {

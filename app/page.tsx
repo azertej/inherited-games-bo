@@ -44,11 +44,13 @@ const Page = () => {
   }, [])
 
   const [contactsInfo, setContactInfos] = useState([])
-  const externeURL = 'https://inherited-games-app.vercel.app/'
+  const externeURL = 'https://inherited-games-app.vercel.app'
   useEffect(() => {
     const getContact = async () => {
       try {
-        const response = await fetch(`${externeURL}/api/contactAPI/get-contacts`, {
+        const url = `${externeURL}/api/contactAPI/get-contacts`
+        console.log('Fetching URL:', url)
+        const response = await fetch(url, {
           redirect: 'follow'
         })
         if (!response.ok) {
