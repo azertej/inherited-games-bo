@@ -13,6 +13,8 @@ export default function Home() {
       const response = await fetch('/api/contactPage/get-contactPage', {
         headers: {
           'Cache-Control': 'no-cache',
+          'Pragma': 'no-cache',
+          'Expires': '0',
         },
       })
       const data = await response.json()
