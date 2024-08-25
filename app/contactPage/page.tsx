@@ -10,13 +10,7 @@ export default function Home() {
 
   useEffect(() => {
     const fetchInfos = async () => {
-      const response = await fetch('/api/contactPage/get-contactPage', {
-        headers: {
-          'Cache-Control': 'no-cache',
-          'Pragma': 'no-cache',
-          'Expires': '0',
-        },
-      })
+      const response = await fetch('/api/contactPage/get-contactPage')
       const data = await response.json()
       setInfos(data)
     }
