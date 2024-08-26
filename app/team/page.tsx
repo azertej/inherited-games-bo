@@ -10,7 +10,12 @@ export default function Home() {
 
   useEffect(() => {
     const fetchTeam = async () => {
-      const response = await fetch('/api/team/get-teams')
+      const response = await fetch('/api/team/get-teams',{
+        method:'GET',
+        headers:{
+          'Cache-Control': 'no-cache'
+        }
+      })
       const data = await response.json()
       setTeams(data)
     }
