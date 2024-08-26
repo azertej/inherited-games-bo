@@ -3,7 +3,6 @@ import { aboutPageModel } from "@/models/aboutPageModel"
 
 export const GET = async (req:any) => {
     try {
-        await connectToDB()
         const infos = await aboutPageModel.find()
         return new Response(JSON.stringify(infos), { status: 200 })
     } catch (error) {

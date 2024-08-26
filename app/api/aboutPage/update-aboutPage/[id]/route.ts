@@ -2,8 +2,7 @@ import { connectToDB } from "@/utils/database"
 import { aboutPageModel } from "@/models/aboutPageModel"
 
 export const GET = async (req: any, { params }: any) => {
-    try {
-        await connectToDB()
+    try {    
         const postId = params.id
         const postById = await aboutPageModel.findById(postId)
         if (!postById) return new Response('Cant find current section', { status: 404 })
@@ -17,7 +16,6 @@ export const GET = async (req: any, { params }: any) => {
 export const PATCH = async (req: any, { params }: any) => {
 
     try {
-        await connectToDB()
         const { title, description, aboutPageImage, StuffsImages } = await req.json()
         const postId = params.id
         const postById = await aboutPageModel.findById(postId)
