@@ -10,7 +10,7 @@ export default function Home() {
 
   useEffect(() => {
     const fetchInfos = async () => {
-      const response = await fetch('/api/aboutPage/get-aboutPage'{
+      const response = await fetch('/api/aboutPage/get-aboutPage',{
         method: 'GET',
         headers: {
           'Cache-Control': 'no-cache',
