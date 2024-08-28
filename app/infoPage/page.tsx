@@ -10,19 +10,19 @@ export default function Home() {
 
   useEffect(() => {
     const fetchInfos = async () => {
-      const response = await fetch('/api/aboutPage/get-aboutPage',{
+      const response = await fetch(`/api/aboutPage/get-aboutPage?timestamp=${new Date().getTime()}`, {
         method: 'GET',
         headers: {
           'Cache-Control': 'no-cache',
           'Pragma': 'no-cache',
           'Expires': '0',
         },
-      })
-      const data = await response.json()
-      setInfos(data)
-    }
-    fetchInfos()
-  }, [])
+      });
+      const data = await response.json();
+      setInfos(data);
+    };
+    fetchInfos();
+  }, []);
 
   const handleEdit = (section: any) => {
     router.push(`/infoPage/update-aboutPage?id=${section._id}`)
