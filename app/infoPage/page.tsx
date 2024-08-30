@@ -11,6 +11,7 @@ export default function Home() {
   useEffect(() => {
     const fetchInfos = async () => {
       const response = await fetch(`/api/aboutPage/get-aboutPage?timestamp=${new Date().getTime()}`, {
+        cache: 'no-store',
         method: 'GET',
         headers: {
           'Cache-Control': 'no-cache',
