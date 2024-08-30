@@ -12,11 +12,7 @@ export default function Home() {
   useEffect(() => {
     const fetchInfos = async () => {
       try {
-        const response = await axios.get('/api/aboutPage/get-aboutPage', {
-          headers: {
-            'Cache-Control': 'no-store'
-          }
-        });
+        const response = await axios.get('/api/aboutPage/get-aboutPage');
         setInfos(response.data);
       } catch (error) {
         console.error('Error fetching data:', error);
