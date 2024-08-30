@@ -1,6 +1,6 @@
 import { eventModel } from '@/models/eventModel';
 import { connectToDB } from '../../../../utils/database';
-
+export const revalidate = 1
 export const GET = async (req: any) => {
     try {
         await connectToDB()

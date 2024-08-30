@@ -1,7 +1,7 @@
 import { connectToDB } from "@/utils/database"
 import { aboutPageModel } from "@/models/aboutPageModel"
 
-export const revalidate = 1; //revalidate api every 1 second
+export const revalidate = 1
 export const GET = async (req: any) => {
     try {
         await connectToDB()
