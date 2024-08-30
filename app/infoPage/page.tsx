@@ -3,6 +3,7 @@
 import AboutPageTable from "@/components/aboutPageTable";
 import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
+import axios from 'axios';
 
 export default function Home() {
   const router = useRouter()
@@ -10,13 +11,18 @@ export default function Home() {
 
   useEffect(() => {
     const fetchInfos = async () => {
-      const response = await fetch(`/api/aboutPage/get-aboutPage`, {
-        cache: 'no-store',
-        method: 'GET',
-      });
-      const data = await response.json();
-      setInfos(data);
+      try {
+        const response = await axios.get('/api/aboutPage/get-aboutPage', {
+          headers: {
+            'Cache-Control': 'no-store'
+          }
+        });
+        setInfos(response.data);
+      } catch (error) {
+        console.error('Error fetching data:', error);
+      }
     };
+
     fetchInfos();
   }, []);
 
