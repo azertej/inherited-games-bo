@@ -10,14 +10,9 @@ export default function Home() {
 
   useEffect(() => {
     const fetchInfos = async () => {
-      const response = await fetch(`/api/aboutPage/get-aboutPage?timestamp=${new Date().getTime()}`, {
+      const response = await fetch(`/api/aboutPage/get-aboutPage`, {
         cache: 'no-store',
         method: 'GET',
-        headers: {
-          'Cache-Control': 'no-cache',
-          'Pragma': 'no-cache',
-          'Expires': '0',
-        },
       });
       const data = await response.json();
       setInfos(data);
